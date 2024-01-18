@@ -1,4 +1,16 @@
+import favicon from './extensions/favicon.ico'
+import MenuLogo from './extensions/strapi-logo.png'
+
 const config = {
+  auth: {
+    logo: MenuLogo,
+  },
+  head: {
+    favicon: favicon,
+  },
+  menu: {
+    logo: MenuLogo,
+  },
   locales: [
     // 'ar',
     // 'fr',
