@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_image_open_graphs",
+  "info": {
+    "displayName": "Image Open Graph",
+    "icon": "medium"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string",
+      "maxLength": 3,
+      "default": "300"
+    },
+    "height": {
+      "type": "string",
+      "maxLength": 3
+    },
+    "alt": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

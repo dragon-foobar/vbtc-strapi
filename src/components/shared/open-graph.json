@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_shared_open_graphs",
+  "info": {
+    "displayName": "Open Graph",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "audio": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "determiner": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "localeAlternate": {
+      "type": "string"
+    },
+    "siteName": {
+      "type": "string"
+    },
+    "video": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "article": {
+      "displayName": "Article Open Graph",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.article-open-graph"
+    },
+    "image": {
+      "displayName": "Image Open Graph",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-open-graph"
+    }
+  }
+}

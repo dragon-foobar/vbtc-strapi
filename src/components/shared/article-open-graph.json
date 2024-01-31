@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_article_open_graphs",
+  "info": {
+    "displayName": "Article Open Graph"
+  },
+  "options": {},
+  "attributes": {
+    "publishedTime": {
+      "type": "string"
+    },
+    "modifiedTime": {
+      "type": "string",
+      "required": true
+    },
+    "expirationTime": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "section": {
+      "type": "string",
+      "required": true
+    },
+    "tagWords": {
+      "type": "string",
+      "required": true,
+      "default": "bitcoin, victoria, article"
+    }
+  }
+}

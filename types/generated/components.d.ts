@@ -298,6 +298,19 @@ export interface SectionsFeatureRowsGroup extends Schema.Component {
   };
 }
 
+export interface SectionsFeaturedTextBlock extends Schema.Component {
+  collectionName: 'components_sections_featured_text_blocks';
+  info: {
+    displayName: 'Featured text block';
+    icon: 'feather';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    text: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface SectionsFeatures extends Schema.Component {
   collectionName: 'components_layout_features';
   info: {
@@ -411,6 +424,45 @@ export interface SectionsTestimonialsGroup extends Schema.Component {
   };
 }
 
+export interface SharedArticleOpenGraph extends Schema.Component {
+  collectionName: 'components_shared_article_open_graphs';
+  info: {
+    displayName: 'Article Open Graph';
+  };
+  attributes: {
+    publishedTime: Attribute.String;
+    modifiedTime: Attribute.String & Attribute.Required;
+    expirationTime: Attribute.String;
+    author: Attribute.String & Attribute.Required;
+    section: Attribute.String & Attribute.Required;
+    tagWords: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'bitcoin, victoria, article'>;
+  };
+}
+
+export interface SharedImageOpenGraph extends Schema.Component {
+  collectionName: 'components_shared_image_open_graphs';
+  info: {
+    displayName: 'Image Open Graph';
+    icon: 'medium';
+  };
+  attributes: {
+    url: Attribute.String;
+    width: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 3;
+      }> &
+      Attribute.DefaultTo<'300'>;
+    height: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 3;
+      }>;
+    alt: Attribute.String;
+    type: Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Schema.Component {
   collectionName: 'components_shared_media';
   info: {
@@ -420,6 +472,29 @@ export interface SharedMedia extends Schema.Component {
   };
   attributes: {
     file: Attribute.Media;
+  };
+}
+
+export interface SharedOpenGraph extends Schema.Component {
+  collectionName: 'components_shared_open_graphs';
+  info: {
+    displayName: 'Open Graph';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    title: Attribute.String;
+    audio: Attribute.String;
+    description: Attribute.String;
+    determiner: Attribute.String;
+    locale: Attribute.String;
+    localeAlternate: Attribute.String;
+    siteName: Attribute.String;
+    video: Attribute.String;
+    type: Attribute.String;
+    url: Attribute.String;
+    imageUrl: Attribute.String;
+    article: Attribute.Component<'shared.article-open-graph'>;
+    image: Attribute.Component<'shared.image-open-graph', true>;
   };
 }
 
@@ -458,9 +533,40 @@ export interface SharedSeo extends Schema.Component {
     description: '';
   };
   attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
+    metaTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
     metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Media;
+    shareImage: Attribute.Component<'shared.share-image'>;
+    preventIndexing: Attribute.Boolean & Attribute.DefaultTo<false>;
+    keywords: Attribute.String & Attribute.Required;
+    metaViewport: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'width=device-width, initial-scale=1'>;
+    author: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Victorian Bitcoin Technology Club Inc.'>;
+    contentDate: Attribute.DateTime & Attribute.Required;
+    copyright: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Apache License 2.0'>;
+    twitterSite: Attribute.String;
+    twitterCreator: Attribute.String;
+    openGraph: Attribute.Component<'shared.open-graph'>;
+  };
+}
+
+export interface SharedShareImage extends Schema.Component {
+  collectionName: 'components_shared_share_images';
+  info: {
+    displayName: 'shareImage';
+    icon: 'earth';
+  };
+  attributes: {
+    media: Attribute.Media;
+    alt: Attribute.String & Attribute.Required;
   };
 }
 
@@ -510,6 +616,7 @@ declare module '@strapi/types' {
       'sections.bottom-actions': SectionsBottomActions;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
+      'sections.featured-text-block': SectionsFeaturedTextBlock;
       'sections.features': SectionsFeatures;
       'sections.heading': SectionsHeading;
       'sections.hero': SectionsHero;
@@ -518,10 +625,14 @@ declare module '@strapi/types' {
       'sections.pricing': SectionsPricing;
       'sections.rich-text': SectionsRichText;
       'sections.testimonials-group': SectionsTestimonialsGroup;
+      'shared.article-open-graph': SharedArticleOpenGraph;
+      'shared.image-open-graph': SharedImageOpenGraph;
       'shared.media': SharedMedia;
+      'shared.open-graph': SharedOpenGraph;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
+      'shared.share-image': SharedShareImage;
       'shared.slider': SharedSlider;
       'shared.video-embed': SharedVideoEmbed;
     }
