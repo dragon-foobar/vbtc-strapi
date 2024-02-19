@@ -306,7 +306,7 @@ export interface SectionsFeaturedTextBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.String & Attribute.Required;
+    heading: Attribute.String;
     text: Attribute.Text & Attribute.Required;
   };
 }
@@ -394,6 +394,22 @@ export interface SectionsPricing extends Schema.Component {
   attributes: {
     title: Attribute.String;
     plans: Attribute.Component<'elements.plan', true>;
+  };
+}
+
+export interface SectionsQuote extends Schema.Component {
+  collectionName: 'components_sections_quotes';
+  info: {
+    displayName: 'Quote';
+    icon: 'write';
+    description: '';
+  };
+  attributes: {
+    quote: Attribute.Text & Attribute.Required;
+    author: Attribute.String & Attribute.Required;
+    date: Attribute.Date;
+    source: Attribute.String;
+    authorDescription: Attribute.Text;
   };
 }
 
@@ -495,20 +511,6 @@ export interface SharedOpenGraph extends Schema.Component {
     imageUrl: Attribute.String;
     article: Attribute.Component<'shared.article-open-graph'>;
     image: Attribute.Component<'shared.image-open-graph', true>;
-  };
-}
-
-export interface SharedQuote extends Schema.Component {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    body: Attribute.Text & Attribute.Required;
-    author: Attribute.String;
   };
 }
 
@@ -623,13 +625,13 @@ declare module '@strapi/types' {
       'sections.large-video': SectionsLargeVideo;
       'sections.lead-form': SectionsLeadForm;
       'sections.pricing': SectionsPricing;
+      'sections.quote': SectionsQuote;
       'sections.rich-text': SectionsRichText;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'shared.article-open-graph': SharedArticleOpenGraph;
       'shared.image-open-graph': SharedImageOpenGraph;
       'shared.media': SharedMedia;
       'shared.open-graph': SharedOpenGraph;
-      'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.share-image': SharedShareImage;

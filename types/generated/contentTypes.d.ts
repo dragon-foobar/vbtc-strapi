@@ -796,10 +796,10 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     blocks: Attribute.DynamicZone<
       [
         'shared.media',
-        'shared.quote',
         'shared.rich-text',
         'shared.slider',
-        'shared.video-embed'
+        'shared.video-embed',
+        'sections.quote'
       ]
     >;
     authorsBio: Attribute.Relation<
@@ -1049,7 +1049,9 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.pricing',
         'sections.lead-form',
         'sections.features',
-        'sections.heading'
+        'sections.heading',
+        'sections.quote',
+        'sections.featured-text-block'
       ]
     > &
       Attribute.SetPluginOptions<{

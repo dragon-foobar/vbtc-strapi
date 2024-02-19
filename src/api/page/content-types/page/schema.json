@@ -38,7 +38,9 @@
         "sections.pricing",
         "sections.lead-form",
         "sections.features",
-        "sections.heading"
+        "sections.heading",
+        "sections.quote",
+        "sections.featured-text-block"
       ],
       "pluginOptions": {
         "i18n": {

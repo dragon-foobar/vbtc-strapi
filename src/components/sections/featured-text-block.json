@@ -9,7 +9,7 @@
   "attributes": {
     "heading": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "text": {
       "type": "text",
