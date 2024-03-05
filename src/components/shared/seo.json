@@ -27,10 +27,6 @@
       "default": "Victorian Bitcoin Technology Club Inc.",
       "required": true
     },
-    "images": {
-      "type": "string",
-      "required": true
-    },
     "openGraph": {
       "type": "component",
       "repeatable": false,

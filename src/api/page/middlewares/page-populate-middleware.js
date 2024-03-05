@@ -44,12 +44,12 @@ const populate = {
   },
   seo: {
     populate: {
-      fields: ["title", "description", "keywords", "authors", "images"],
+      fields: ["title", "description", "keywords", "authors"],
       openGraph: {
-        fields: ["type", "publishedTime"],
+        fields: ["type", "publishedTime", "images"],
       },
       twitter: {
-        fields: ["card", "creator"],
+        fields: ["card", "creator", "images"],
       },
     },
   },

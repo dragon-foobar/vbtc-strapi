@@ -13,6 +13,10 @@
     "publishedTime": {
       "type": "datetime",
       "required": false
+    },
+    "images": {
+      "type": "string",
+      "required": true
     }
   }
 }

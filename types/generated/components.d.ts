@@ -480,6 +480,7 @@ export interface SharedOpenGraph extends Schema.Component {
   attributes: {
     type: Attribute.String;
     publishedTime: Attribute.DateTime;
+    images: Attribute.String & Attribute.Required;
   };
 }
 
@@ -516,7 +517,6 @@ export interface SharedSeo extends Schema.Component {
     authors: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'Victorian Bitcoin Technology Club Inc.'>;
-    images: Attribute.String & Attribute.Required;
     openGraph: Attribute.Component<'shared.open-graph'>;
     twitter: Attribute.Component<'shared.twitter-seo'>;
   };
@@ -539,6 +539,7 @@ export interface SharedTwitterSeo extends Schema.Component {
   info: {
     displayName: 'Twitter SEO';
     icon: 'user';
+    description: '';
   };
   attributes: {
     card: Attribute.String &
@@ -547,6 +548,7 @@ export interface SharedTwitterSeo extends Schema.Component {
     creator: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'@vbtc_au'>;
+    images: Attribute.String & Attribute.Required;
   };
 }
 
