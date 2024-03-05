@@ -43,9 +43,16 @@ const populate = {
     },
   },
   seo: {
-    fields: ["metaTitle", "metaDescription"],
-    populate: { shareImage: true },
-  }
+    populate: {
+      fields: ["title", "description", "keywords", "authors", "images"],
+      openGraph: {
+        fields: ["type", "publishedTime"],
+      },
+      twitter: {
+        fields: ["card", "creator"],
+      },
+    },
+  },
 };
 
 module.exports = (config, { strapi }) => {

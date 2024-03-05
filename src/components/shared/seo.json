@@ -3,65 +3,43 @@
   "info": {
     "name": "Seo",
     "icon": "allergies",
-    "displayName": "Seo",
+    "displayName": "Page SEO",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "metaTitle": {
+    "title": {
       "type": "string",
       "required": true,
       "maxLength": 60
     },
-    "metaDescription": {
+    "description": {
       "type": "text",
-      "required": true
-    },
-    "shareImage": {
-      "displayName": "shareImage",
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.share-image"
-    },
-    "preventIndexing": {
-      "type": "boolean",
-      "default": false,
-      "required": false
+      "required": true,
+      "default": "Supporting grassroots bitcoin education in Victoria, Australia"
     },
     "keywords": {
       "type": "string",
       "required": true
     },
-    "metaViewport": {
-      "type": "string",
-      "default": "width=device-width, initial-scale=1",
-      "required": true
-    },
-    "author": {
+    "authors": {
       "type": "string",
       "default": "Victorian Bitcoin Technology Club Inc.",
       "required": true
     },
-    "contentDate": {
-      "type": "datetime",
+    "images": {
+      "type": "string",
       "required": true
     },
-    "copyright": {
-      "type": "string",
-      "required": true,
-      "default": "Apache License 2.0"
-    },
-    "twitterSite": {
-      "type": "string"
-    },
-    "twitterCreator": {
-      "type": "string"
-    },
     "openGraph": {
-      "displayName": "Open Graph",
       "type": "component",
       "repeatable": false,
       "component": "shared.open-graph"
+    },
+    "twitter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.twitter-seo"
     }
   }
 }

@@ -8,13 +8,43 @@
   },
   "options": {},
   "attributes": {
-    "metaTitle": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "metaDescription": {
+    "description": {
       "type": "text",
       "required": true
+    },
+    "referrer": {
+      "type": "string",
+      "default": "origin-when-cross-origin",
+      "required": true
+    },
+    "generator": {
+      "type": "string",
+      "required": true,
+      "default": "Next.js"
+    },
+    "applicationName": {
+      "type": "string",
+      "required": true,
+      "default": "Victorian Bitcoin Technology Club Web App"
+    },
+    "creator": {
+      "type": "string",
+      "required": true,
+      "default": "dragon-foobar"
+    },
+    "publisher": {
+      "type": "string",
+      "default": "Victorian Bitcoin Technology Club Inc.",
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true,
+      "default": "Community Organisation"
     }
   }
 }

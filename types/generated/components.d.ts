@@ -254,8 +254,26 @@ export interface MetaMetadata extends Schema.Component {
     description: '';
   };
   attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    referrer: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'origin-when-cross-origin'>;
+    generator: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Next.js'>;
+    applicationName: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Victorian Bitcoin Technology Club Web App'>;
+    creator: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'dragon-foobar'>;
+    publisher: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Victorian Bitcoin Technology Club Inc.'>;
+    category: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Community Organisation'>;
   };
 }
 
@@ -440,45 +458,6 @@ export interface SectionsTestimonialsGroup extends Schema.Component {
   };
 }
 
-export interface SharedArticleOpenGraph extends Schema.Component {
-  collectionName: 'components_shared_article_open_graphs';
-  info: {
-    displayName: 'Article Open Graph';
-  };
-  attributes: {
-    publishedTime: Attribute.String;
-    modifiedTime: Attribute.String & Attribute.Required;
-    expirationTime: Attribute.String;
-    author: Attribute.String & Attribute.Required;
-    section: Attribute.String & Attribute.Required;
-    tagWords: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'bitcoin, victoria, article'>;
-  };
-}
-
-export interface SharedImageOpenGraph extends Schema.Component {
-  collectionName: 'components_shared_image_open_graphs';
-  info: {
-    displayName: 'Image Open Graph';
-    icon: 'medium';
-  };
-  attributes: {
-    url: Attribute.String;
-    width: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 3;
-      }> &
-      Attribute.DefaultTo<'300'>;
-    height: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 3;
-      }>;
-    alt: Attribute.String;
-    type: Attribute.String;
-  };
-}
-
 export interface SharedMedia extends Schema.Component {
   collectionName: 'components_shared_media';
   info: {
@@ -496,21 +475,11 @@ export interface SharedOpenGraph extends Schema.Component {
   info: {
     displayName: 'Open Graph';
     icon: 'arrowRight';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    audio: Attribute.String;
-    description: Attribute.String;
-    determiner: Attribute.String;
-    locale: Attribute.String;
-    localeAlternate: Attribute.String;
-    siteName: Attribute.String;
-    video: Attribute.String;
     type: Attribute.String;
-    url: Attribute.String;
-    imageUrl: Attribute.String;
-    article: Attribute.Component<'shared.article-open-graph'>;
-    image: Attribute.Component<'shared.image-open-graph', true>;
+    publishedTime: Attribute.DateTime;
   };
 }
 
@@ -531,44 +500,25 @@ export interface SharedSeo extends Schema.Component {
   info: {
     name: 'Seo';
     icon: 'allergies';
-    displayName: 'Seo';
+    displayName: 'Page SEO';
     description: '';
   };
   attributes: {
-    metaTitle: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
-    metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Component<'shared.share-image'>;
-    preventIndexing: Attribute.Boolean & Attribute.DefaultTo<false>;
-    keywords: Attribute.String & Attribute.Required;
-    metaViewport: Attribute.String &
+    description: Attribute.Text &
       Attribute.Required &
-      Attribute.DefaultTo<'width=device-width, initial-scale=1'>;
-    author: Attribute.String &
+      Attribute.DefaultTo<'Supporting grassroots bitcoin education in Victoria, Australia'>;
+    keywords: Attribute.String & Attribute.Required;
+    authors: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'Victorian Bitcoin Technology Club Inc.'>;
-    contentDate: Attribute.DateTime & Attribute.Required;
-    copyright: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'Apache License 2.0'>;
-    twitterSite: Attribute.String;
-    twitterCreator: Attribute.String;
+    images: Attribute.String & Attribute.Required;
     openGraph: Attribute.Component<'shared.open-graph'>;
-  };
-}
-
-export interface SharedShareImage extends Schema.Component {
-  collectionName: 'components_shared_share_images';
-  info: {
-    displayName: 'shareImage';
-    icon: 'earth';
-  };
-  attributes: {
-    media: Attribute.Media;
-    alt: Attribute.String & Attribute.Required;
+    twitter: Attribute.Component<'shared.twitter-seo'>;
   };
 }
 
@@ -581,6 +531,22 @@ export interface SharedSlider extends Schema.Component {
   };
   attributes: {
     files: Attribute.Media;
+  };
+}
+
+export interface SharedTwitterSeo extends Schema.Component {
+  collectionName: 'components_shared_twitter_seos';
+  info: {
+    displayName: 'Twitter SEO';
+    icon: 'user';
+  };
+  attributes: {
+    card: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'summary_large_image'>;
+    creator: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'@vbtc_au'>;
   };
 }
 
@@ -628,14 +594,12 @@ declare module '@strapi/types' {
       'sections.quote': SectionsQuote;
       'sections.rich-text': SectionsRichText;
       'sections.testimonials-group': SectionsTestimonialsGroup;
-      'shared.article-open-graph': SharedArticleOpenGraph;
-      'shared.image-open-graph': SharedImageOpenGraph;
       'shared.media': SharedMedia;
       'shared.open-graph': SharedOpenGraph;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
-      'shared.share-image': SharedShareImage;
       'shared.slider': SharedSlider;
+      'shared.twitter-seo': SharedTwitterSeo;
       'shared.video-embed': SharedVideoEmbed;
     }
   }

@@ -1,24 +1,25 @@
 {
   "name": "vbtc-strapi",
-  "private": true,
   "version": "0.1.0",
-  "description": "A Strapi Content Management System application serving the VBTC clients",
+  "private": true,
+  "description": "A Strapi Content Management System application serving the VBTC client applications",
+  "license": "MIT",
+  "author": {
+    "name": "Dragon Foobar"
+  },
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "export": "strapi export --no-encrypt -f ./seed-data"
+    "develop": "strapi develop",
+    "export": "strapi export --no-encrypt -f ./seed-data",
+    "start": "strapi start",
+    "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.17.0",
-    "@strapi/plugin-sentry": "^4.19.0",
     "@strapi/plugin-seo": "1.9.8",
     "@strapi/plugin-users-permissions": "4.17.0",
     "@strapi/provider-email-nodemailer": "4.17.0",
     "@strapi/provider-upload-cloudinary": "^4.17.1",
     "@strapi/strapi": "4.17.0",
-    "better-sqlite3": "9.2.2",
     "pg": "^8.11.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -26,15 +27,12 @@
     "strapi-plugin-import-export-entries": "^1.23.1",
     "styled-components": "^5.2.1"
   },
-  "author": {
-    "name": "Dragon Foobar"
-  },
-  "strapi": {
-    "uuid": "42b937aa-0f16-4a30-bb55-95f60ec03b48"
-  },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "strapi": {
+    "uuid": "42b937aa-0f16-4a30-bb55-95f60ec03b48",
+    "telemetryDisabled": true
+  }
 }

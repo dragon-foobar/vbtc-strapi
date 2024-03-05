@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_twitter_seos",
+  "info": {
+    "displayName": "Twitter SEO",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "card": {
+      "type": "string",
+      "required": true,
+      "default": "summary_large_image"
+    },
+    "creator": {
+      "type": "string",
+      "required": true,
+      "default": "@vbtc_au"
+    }
+  }
+}

@@ -30,7 +30,6 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      headers: "*",
       origin: [
         "http://localhost:1337",
         "http://localhost:3000",
@@ -39,10 +38,19 @@ module.exports = [
         "https://vbtc.org.au",
         "https://vbtc-web.vercel.app",
         "https://vbtc-web-dragon-den.vercel.app",
+        "https://analytics.strapi.io",
       ],
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+      headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+      keepHeaderOnError: true,
     },
   },
-  "strapi::poweredBy",
+  {
+    name: "strapi::poweredBy",
+    config: {
+      poweredBy: "Victorian Bitcoin Technology Club <https://vbtc.org.au>",
+    },
+  },
   "strapi::query",
   "strapi::body",
   "strapi::session",

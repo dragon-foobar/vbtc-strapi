@@ -1,5 +1,5 @@
-import favicon from './extensions/favicon.ico'
-import MenuLogo from './extensions/strapi-logo.png'
+import favicon from "./extensions/favicon.ico";
+import MenuLogo from "./extensions/strapi-logo.png";
 
 const config = {
   auth: {
