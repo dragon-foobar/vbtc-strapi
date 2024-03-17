@@ -242,7 +242,7 @@ export interface LinksSocialLink extends Schema.Component {
     newTab: Attribute.Boolean & Attribute.DefaultTo<false>;
     text: Attribute.String & Attribute.Required;
     social: Attribute.Enumeration<
-      ['YOUTUBE', 'TWITTER', 'DISCORD', 'WEBSITE', 'LINKEDIN', 'NOSTR']
+      ['YOUTUBE', 'TWITTER', 'DISCORD', 'WEBSITE', 'LINKEDIN', 'NOSTR', 'MAIL']
     >;
   };
 }
