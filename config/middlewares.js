@@ -39,6 +39,8 @@ module.exports = [
         "https://vbtc-web.vercel.app",
         "https://vbtc-web-dragon-den.vercel.app",
         "https://analytics.strapi.io",
+        "vbtc-web-git-dev-dragon-den.vercel.app",
+        "dev.vbtc.org.au",
       ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
